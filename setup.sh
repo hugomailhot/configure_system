@@ -18,7 +18,8 @@ pip install --user powerline-status
 # no trace of that on my current system
 
 # Copy repo dotfiles into their appropriate system locations
-cp dotfiles/.tmux.conf ~/.tmux.conf
-cp dotfiles/.vimrc ~/.vimrc
-cp dotfiles/.zshrc ~/.zshrc
+cp dotfiles/.tmux.conf ~/.tmux.conf    # tmuc config file
+cp dotfiles/.vimrc ~/.vimrc            # vim config file
+cp dotfiles/.zshrc ~/.zshrc            # zsh config file
 cp dotfiles/config_0 ~/.config/tilda/  # tilda config file
+cp dotfiles/.bash_aliases ~            # terminal aliases
