@@ -2,10 +2,10 @@
 
 - [x] add aliases file(s)
 - [ ] test setup.sh on new instance
-- [ ] add following programs:
-	- [ ] vim
-	- [ ] tree
-	- [ ] htop
-	- [ ] zathura
+- [x] add following programs:
+	- [x] vim
+	- [x] tree
+	- [x] htop
+	- [x] zathura
 - [ ] uninstall blueberry, install blueman
 
