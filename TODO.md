@@ -8,8 +8,8 @@
 	- [x] htop
 	- [x] zathura
 - [x] uninstall blueberry, install blueman
-- [ ] install Slack, whatsapp
-- [ ] Python stuff
-    - [ ] Python 3.7
-    - [ ] dev dependencies
-    - [ ] poetry
+- [x] install Slack
+- [x] Python stuff
+    - [x] Python 3.7
+    - [x] dev dependencies
+    - [x] poetry
