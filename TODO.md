@@ -7,5 +7,9 @@
 	- [x] tree
 	- [x] htop
 	- [x] zathura
-- [ ] uninstall blueberry, install blueman
-
+- [x] uninstall blueberry, install blueman
+- [ ] install Slack, whatsapp
+- [ ] Python stuff
+    - [ ] Python 3.7
+    - [ ] dev dependencies
+    - [ ] poetry
