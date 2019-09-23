@@ -28,9 +28,9 @@ Plug 'chrisbra/csv.vim'
 Plug 'wakatime/vim-wakatime'
 Plug 'nvie/vim-flake8'
 Plug 'airblade/vim-gitgutter'
-
 " Initialize plugin system
 call plug#end()
+
 "}}}
 filetype plugin indent on    " required
 

@@ -16,6 +16,7 @@ alias sheets='nohup google-chrome --app=https://docs.google.com/spreadsheets/u/0
 # Messaging
 alias slack='nohup slack >/dev/null 2>&1 &'
 alias messenger='nohup google-chrome --app=https://www.messenger.com >/dev/null 2>&1 &'
+alias whatsapp='nohup google-chrome --app=https://web.whatsapp.com >/dev/null 2>&1 &'
 alias sms='nohup google-chrome --app=https://messages.android.com >/dev/null 2>&1 &'
 
 # Paper hunting
