@@ -25,7 +25,7 @@ alias scholar='nohup google-chrome --app=https://scholar.google.com >/dev/null 2
 
 alias tb='cd /home/hugo/Documents/PDFs/textbooks'
 evince () {nohup /usr/bin/evince $* &}
-zathura () {nohup /usr/bin/zathura $* &}
+# zathura () {nohup /usr/bin/zathura $* &}
 alias workout='libreoffice Documents/perso/workout.ods >/dev/null 2>&1 &'
 
 alias ucdvpn='/usr/local/pulse/PulseClient_x86_64.sh -h vpn.library.ucdavis.edu -u hmailhot -r Library'
@@ -51,6 +51,7 @@ alias delcal="nohup google-chrome --app=https://calendar.google.com/calendar/b/1
 alias deldrive="nohup google-chrome --app=https://drive.google.com/drive/u/3/my-drive >/dev/null 2>&1 &"
 alias awsconsole="nohup google-chrome --app='https://console.aws.amazon.com/console/home' >/dev/null 2>&1 &"
 
+
 #########################
 ###### SSH servers ######
 #########################
@@ -64,3 +65,9 @@ alias datasci='ssh hmailhot@datasci.library.ucdavis.edu'
 alias cookieds='cookiecutter https://github.com/drivendata/cookiecutter-data-science'
 alias psh='pipenv shell'
 alias gs='git status'
+
+#####################
+#### Media Stuff ####
+#####################
+compress_videos () {docker run -v $*:/files bennetimo/shrinkwrap:latest \
+    --input-extension MP4 --ffmpeg-opts crf=23, preset=veryfast  --preset gopro7 /files}

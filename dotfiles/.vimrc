@@ -2,43 +2,36 @@ set nocompatible              " required
 filetype off                  " required
 
 
-" vim-plug{{{
-" Install vim-plug if it's not already installed
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
 " Specify a directory for plugins
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
-Plug 'flazz/vim-colorschemes'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-commentary'
-Plug 'scrooloose/nerdtree'
 Plug 'Valloric/YouCompleteMe'
+Plug 'airblade/vim-gitgutter'
+Plug 'chrisbra/csv.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jpalardy/vim-slime'
-Plug 'junegunn/vim-easy-align'
-Plug 'morhetz/gruvbox'
+Plug 'jremmen/vim-ripgrep'
+Plug 'kien/ctrlp.vim'
 Plug 'moll/vim-bbye'
-Plug 'mtth/scratch.vim'
-Plug 'chrisbra/csv.vim'
-Plug 'wakatime/vim-wakatime'
+Plug 'morhetz/gruvbox'
 Plug 'nvie/vim-flake8'
-Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'wakatime/vim-wakatime'
+Plug 'gioele/vim-autoswap'
+
 " Initialize plugin system
 call plug#end()
 
-"}}}
 filetype plugin indent on    " required
 
-
-" Change leader key mapping to more convenient é key
+" Change leader key mapping to more convenient Spacebar and é keys
 let mapleader = "é"
+nmap <Space> é
 
-" This file {{{
+" This file
 " Open and edit this file in split pane
 cnoreabbrev rc sp ~/.vimrc
 
@@ -46,8 +39,9 @@ cnoreabbrev rc sp ~/.vimrc
 augroup myvimrc
 	au!
 	au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
-augroup END"}}}
-" Misc {{{
+augroup END
+
+" Misc
 syntax enable
 set encoding=utf-8
 set foldmethod=marker
@@ -79,12 +73,12 @@ autocmd FileType gitcommit setlocal textwidth=80
 " Don't break words in the middle to wrap a line
 set linebreak
 
-"}}}
-" Movement {{{
+" Movement
 nnoremap zj zt
 nnoremap zk zb
-" }}}
-" Buffer / pane mangement {{{1
+
+" Buffer / pane mangement
+
 " Allow hidden buffer
 set hidden
 
@@ -92,8 +86,8 @@ set hidden
 nnoremap <F5> :buffers<CR>:buffer<Space>
 
 " Go to next/previous buffer
-nnoremap <C-n> :bnext<CR>
-nnoremap <C-p> :bprevious<CR>
+nnoremap <C-m> :bnext<CR>
+nnoremap <C-n> :bprevious<CR>
 
 " C-^ is not possible on my keyboard layout
 " Remap last buffer switching to something else
@@ -105,7 +99,6 @@ set splitright
 
 " Force vertical split when using vimdiff or Gdiff
 set diffopt+=vertical
-
 
 " vim-tmux-navigator mappings
 let g:tmux_navigator_no_mappings = 1
@@ -189,7 +182,7 @@ set scrolloff=4
 set ruler
 
 " Display line on column 80
-set cc=80
+set cc=119
 
 " Line numbers
 set number
@@ -209,6 +202,9 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 " Theme
 set background=dark
 colorscheme gruvbox
+
+" Make vim transparent
+hi Normal guibg=NONE ctermbg=NONE
 
 "}}}
 " #### LaTeX ####{{{
@@ -278,9 +274,6 @@ au BufNewFile,BufRead *.py
 
 let python_highlight_all=1
 
-" shabang for Python scripts
-map <leader># <Esc>i# !/usr/bin/env python<CR># encoding: utf-8<CR><Esc>
-
 
 " ##############
 " #### JSON ####
@@ -291,6 +284,19 @@ map <leader># <Esc>i# !/usr/bin/env python<CR># encoding: utf-8<CR><Esc>
 map <leader>jt  <Esc>:%!python -m json.tool<CR>:%s/\\u\(\x\{4\}\)/\=nr2char('0x'.submatch(1),1)/g<CR>
 
 "}}}
+"
+" #### Swift #### {{{
+
+" Set autoindentation and whitespace for Swift files
+au BufNewFile,BufRead *.swift
+			\ set tabstop=4 |
+			\ set softtabstop=4 |
+			\ set shiftwidth=4 |
+			\ set expandtab |
+			\ set autoindent |
+			\ set fileformat=unix |
+			\ set nowrap
+" }}}
 " #### YouCompleteMe ####{{{
 
 " Better autocomplete behavior
@@ -313,6 +319,9 @@ let NERDTreeIgnore=['\.pyc$', '\~$']
 
 " Refresh directory listing
 nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
+
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
 "}}}
 " vim-bbye {{{
 nnoremap <Leader>q :Bdelete<CR>

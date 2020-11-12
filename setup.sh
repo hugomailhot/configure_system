@@ -7,6 +7,11 @@ sudo apt autoremove
 # Install git
 sudo apt install git
 
+# Nuild essentials
+sudo apt install build-essential
+sudo apt install cmake
+sudo apt install python-dev
+
 # Install zsh and oh-my-zsh
 sudo apt install zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -17,9 +22,6 @@ sudo apt install tilda
 # Install tmux terminal multiplexer
 sudo apt install tmux
 
-# Install powerline terminal bling $$$
-pip install --user powerline-status
-
 # setup powerline fonts?
 # no trace of that on my current system
 
@@ -29,8 +31,8 @@ sudo apt update
 sudo apt install vim-gtk3
 
 # Install other terminal essentials
-sudo apt tree
-sudo apt htop
+sudo apt install tree
+sudo apt install htop
 
 # Remove crappy bluetooth support, install actual bluetooth support
 sudo apt purge blueberry
@@ -48,6 +50,8 @@ sudo apt install software-properties-common
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt install python3.7
 sudo apt install python3-dev
+sudo apt install python-setuptools
+sudo apt install python-pip
 
 # Poetry for Python environment management
 curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
@@ -55,3 +59,6 @@ curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.p
 # Install messaging apps
 wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.0.2-amd64.deb
 sudo apt install ./slack-desktop-*.deb
+
+# Install powerline terminal bling $$$
+pip install --user powerline-status
