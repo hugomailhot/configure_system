@@ -21,7 +21,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colorize github tmux zsh-syntax-highlighting vi-mode)
+plugins=(git colorize github tmux zsh-syntax-highlighting zsh-history-substring-search)
 
 # User configuration
 
@@ -41,7 +41,7 @@ lfcd () {
 }
 bindkey -s '^o' 'lfcd\n'
 
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin:~/bin/:$PATH"
 export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -79,7 +79,6 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source /home/hugo/.bash_aliases
-source ~/.bashrc.bastion.sh
 #source /home/hugo/.shell_functions
 #source /home/hugo/.envars
 
@@ -115,34 +114,10 @@ bindkey '^[[1;5C' forward-word
 #         $MOTD
 #     fi
 # fi
-export PATH="/home/hugo/google-cloud-sdk/bin:/usr/bin:/bin:/usr/sbin:/sbin:/home/hugo/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$PATH"
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/home/hugo/.poetry/bin:/home/hugo/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre/
-export PATH=$PATH:$JAVA_HOME/bin/
-
-
-# MLFlow creds
-export MLFLOW_TRACKING_USERNAME=delphia-ds
-export MLFLOW_TRACKING_PASSWORD=svuNNctvZzZPQgA6NKGLfxsj
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/hugo/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/hugo/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/hugo/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/hugo/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
-# Set Python binary for Google Cloud SDK
-export CLOUDSDK_PYTHON=/usr/bin/python
-# Use GKE auth for kubectl
-export USE_GKE_GCLOUD_AUTH_PLUGIN=True
-
-export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64/"
-export DBT_PROFILES_DIR=/home/hugo/delphia/projects/sig-dbt
-export DBT_PROFILES_DIR=/home/hugo/delphia/projects/sig-dbt
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completionexport DBT_PROFILES_DIR=/home/hugo/projects/delphia/sig-dbt
 export DELPHIA_EMAIL=hugo@delphia.com
-export DBT_PROFILES_DIR=/home/hugo/delphia/projects/sig-dbt
-export DELPHIA_EMAIL=hugo@delphia.com
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
