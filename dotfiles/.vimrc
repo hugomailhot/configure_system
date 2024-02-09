@@ -6,6 +6,7 @@ filetype off                  " required
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
+Plug 'Lokaltog/vim-powerline'
 Plug 'Valloric/YouCompleteMe'
 Plug 'airblade/vim-gitgutter'
 Plug 'chrisbra/csv.vim'
@@ -19,8 +20,8 @@ Plug 'nvie/vim-flake8'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
-Plug 'wakatime/vim-wakatime'
 Plug 'gioele/vim-autoswap'
+Plug 'junegunn/fzf'
 
 " Initialize plugin system
 call plug#end()
@@ -322,6 +323,7 @@ nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
 
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
+let g:NERDTreeWinSize = 40
 "}}}
 " vim-bbye {{{
 nnoremap <Leader>q :Bdelete<CR>
