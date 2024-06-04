@@ -1,7 +1,6 @@
 # Update the repo dotfiles to match the system ones
-cp 	~/.vimrc \
+cp \
 	~/.zshrc \
 	~/.tmux.conf \
-	~/.config/tilda/config_0 \
-	~/.bash_aliases \
+	~/.config/alacritty/alacritty.toml \
 	dotfiles
