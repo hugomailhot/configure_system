@@ -1,0 +1,18 @@
+#!/usr/bin/bash
+
+# Open window if it's not already open
+alacritty_windows_count=$(wmctrl -l | grep "Alacritty" | wc -l)
+if [ $alacritty_windows_count -eq 0 ]; then
+	nohup alacritty &
+	>/dev/null 2>&1
+	sleep 0.3
+	wmctrl -r Alacritty -b add,sticky,fullscreen
+fi
+
+# If window is active, hide it, otherwise focus it
+active_window=$(xdotool getactivewindow getwindowname)
+if [ "$active_window" = "Alacritty" ]; then
+	xdotool getactivewindow windowminimize
+else
+	wmctrl -F -a "Alacritty"
+fi
