@@ -48,11 +48,10 @@ sudo apt install tree
 sudo apt install htop
 
 # Copy repo dotfiles into their appropriate system locations
-cp dotfiles/.tmux.conf ~/.tmux.conf    # tmuc config file
-cp dotfiles/.vimrc ~/.vimrc            # vim config file
-cp dotfiles/.zshrc ~/.zshrc            # zsh config file
-cp dotfiles/config_0 ~/.config/tilda/  # tilda config file
-cp dotfiles/.bash_aliases ~            # terminal aliases
+cp dotfiles/.tmux.conf ~/.tmux.conf # tmuc config file
+cp dotfiles/.zshrc ~/.zshrc         # zsh config file
+mkdir -p ~/bin
+cp scripts/dropdown_alacritty.sh bin/ # terminal emulator config
 
 # Install Python and associated dependencies
 sudo apt install software-properties-common
@@ -63,6 +62,3 @@ sudo apt install python3-pip
 
 # Poetry for Python environment management
 curl -sSL https://install.python-poetry.org | python3 -
-
-# Install powerline terminal bling $$$
-pip3 install --user powerline-status
